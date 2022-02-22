@@ -3,15 +3,15 @@ require('dotenv').config();
 
 import db from './models'
 import log from './logger/index'
+import routes from './router/course'
 
 const port: any = process.env.API_PORT,
     host: any = process.env.DB_HOST,
     app = express()
         .use(express.json())
         .use(express.urlencoded({ extended: false }))
+        .use(routes)
 
-// app.use(express.json())
-// app.use(express.urlencoded({ extended: false }))
 
 db.sequelize.sync().then(() => {
     app.listen(port, host, () => {
@@ -20,7 +20,7 @@ db.sequelize.sync().then(() => {
 })
 
 
-app.get('/hello', (req, res, next) => {
+app.get('/hello', (req: Request, res: Response) => {
     db.User.findAll()
     .then((result: object) => res.json({ result }))
     .catch((err: string) => console.error(err))
