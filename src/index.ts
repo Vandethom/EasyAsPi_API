@@ -1,7 +1,7 @@
 import express, { Request, Response } from 'express'
 require('dotenv').config();
 
-import db from '../models'
+import db from './models'
 import log from './logger/index'
 
 const port: any = process.env.API_PORT,
