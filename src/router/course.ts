@@ -3,6 +3,6 @@ import * as ctrl from '../controllers/course'
 
 const course_routes: Router = Router()
 
-course_routes.get('/create_course', ctrl.create_course)
+course_routes.get('/create_course', ctrl.getAll)
 
 export default course_routes

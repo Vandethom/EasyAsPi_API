@@ -1,4 +1,5 @@
 import express, { Request, Response } from 'express'
+import "reflect-metadata"
 require('dotenv').config();
 
 import db from './models'
@@ -25,6 +26,8 @@ app.get('/hello', (req: Request, res: Response) => {
     .then((result: object) => res.json({ result }))
     .catch((err: string) => console.error(err))
 })
+
+export default app
 
 // const createUsers = () => {
 //     users.map(user => {
